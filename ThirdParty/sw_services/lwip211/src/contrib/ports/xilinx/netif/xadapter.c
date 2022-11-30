@@ -183,7 +183,7 @@ xemac_add(struct netif *netif,
 						mac_baseaddr);
 	}
 
-	#ifdef OS_IS_FREERTOS
+	#if !NO_SYS
 		/* Start thread to detect link periodically for Hot Plug autodetect */
 		sys_thread_new("link_detect_thread", link_detect_thread, netif,
 				THREAD_STACKSIZE, tskIDLE_PRIORITY);
